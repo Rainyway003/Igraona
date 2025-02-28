@@ -5,11 +5,7 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {
-      fontFamily: {
-        RS: ['Russo One', 'sans-serif'],
-      },
-    },
+    extend: {},
   },
   plugins: [],
 }
