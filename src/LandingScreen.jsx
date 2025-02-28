@@ -1,15 +1,15 @@
 import InstagramIcon from '@mui/icons-material/Instagram';
-import TwitterIcon from '@mui/icons-material/Twitter';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import Slika from './assets/10i.png'
 import Video from './assets/web.mp4'
 import './index.css'
 
+
 function LandingScreen() {
     // #930415
     return (
-        <div className="w-screen h-screen font-RS">
-            <div className="h-full w-full bg-slate-800" style={{
+        <div className="w-screen h-screen font-RS bg-red-200">
+            <div className="igraona h-full w-full bg-[#161616] relative" style={{
                 backgroundImage: `url(${Slika})`,
                 backgroundSize: "cover",
                 backgroundPosition: "calc(50%) center",
@@ -17,19 +17,21 @@ function LandingScreen() {
             }}>
                 <div className="w-full h-full flex flex-col justify-center items-center text-center gap-6">
                     <div>
-                        <h2 className="text-white text-4xl">Turnir 4</h2>
-                        <h1 className="text-white text-8xl font-[1000]">IGRAONA</h1>
-                        <h1 className="text-gray-300 text-2xl">Najbolja
-                            <span className="text-[#8D151F] text-8xl p-2 italic">IGRAONA</span>
-                            u svijetu <br /> i šire</h1>
+                        <h1 className="text-[#8D151F] text-8xl font-[1000]">IGRAONA IGRAONA</h1>
+                        <h2 className="text-white text-8xl font-[1000]">TURNIR TURNIRA 4</h2>
                     </div>
                     <div className="w-96 h-[1px] bg-white"></div>
-                    <button type="button" class="text-white bg-red-700 hover:bg-red-800 focus:ring-1 focus:ring-red-300 relative left-1 font-medium text-lg rounded-lg px-5 py-2.5 me-2 mt-2 mb-2 dark:bg-red-800 dark:hover:bg-red-900 focus:outline-none dark:focus:ring-red-900">PRIJAVI SE</button>
+
+                    <button type="button" className="button">
+                        <div className="img-back"></div>
+                        <div className="text">PRIJAVI SE</div>
+                    </button>
                 </div>
+
             </div>
 
 
-            <div className="w-full h-screen relative flex justify-center items-center bg-black overflow-hidden">
+            <div className="w-[120%] h-[120%] relative flex justify-center items-center bg-[#161616] overflow-hidden transform rotate-[-3deg] origin-bottom-left">
                 <video
                     src={Video}
                     type="video/mp4"
@@ -37,9 +39,9 @@ function LandingScreen() {
                     muted
                     autoPlay
                     playsInline
-                    className="absolute top-0 left-0 w-full h-full object-cover z-0"
+                    className="absolute w-full h-[120%] object-cover z-0 mask-video transform translate-x-[-15%] translate-y-[-10%]"
                 />
-                <div className='absolute w-[40%] h-[100%] flex items-center justify-center flex-col text-white text-center'>
+                <div className='absolute w-[40%] h-[100%] flex left-96 text-center justify-center flex-col text-white transform rotate-[3deg]'>
                     <h1 className='text-5xl'>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</h1>
                     <p className='text-3xl'>
                         Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -50,6 +52,7 @@ function LandingScreen() {
                     </p>
                 </div>
             </div>
+
 
             <div className="bg-black w-[120%] image2-gradient h-[70vh] border-gradient flex justify-center items-center relative bottom-16 z-10 transform rotate-[-3deg] origin-top -left-[10%]">
 
@@ -65,42 +68,50 @@ function LandingScreen() {
             <div className="w-full h-[100%] image-gradient relative bottom-32">
 
                 <div className="w-full h-[100%] relative flex pt-52 items-center justify-evenly">
-                    <img src="https://scontent.fsjj1-1.fna.fbcdn.net/v/t39.30808-6/473800326_1030011709154770_738760792021761499_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeHemf9omrcHcNipWwPWqwUe5cdhkR3ea3jlx2GRHd5reH-tDLn_IgSFYDjho8v6J5WIHWNUmfbXIbO50fjkM4ZT&_nc_ohc=0_rJyUdxYskQ7kNvgF3pAyI&_nc_oc=AdhyiOUwg6pO5rMT_puLWb7X4nu2xaYVMr-EUek3WG9RzJlD6lKg6aI-l2p4YRlmJm4&_nc_zt=23&_nc_ht=scontent.fsjj1-1.fna&_nc_gid=AdGq3HhcLetPwCFfN8F1T7G&oh=00_AYALDEXX5Di61NjPiVvVW4bJ0DZGmpEPa4D3B00PHH4m4A&oe=67C6854C"
-                        className='w-96 h-96 ml-40 shadow-2xl shadow-black' />
-                    <p className="text-white w-96 mr-40">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                        Quasi eius quas, dicta sint quia sequi odit omnis optio,
-                        expedita non maxime aspernatur provident doloribus voluptatem,
-                        est similique autem officiis fugiat!
-                        Quidem tempore tempora dolore qui ratione eveniet doloremque dolores molestias reiciendis voluptate cum ipsam numquam assumenda saepe,
-                    </p>
                 </div>
 
 
-                <div className="w-full h-[50%] flex justify-evenly items-center background-gradient rotate-[0deg] relative">
 
+                <div className="w-full h-[50%] flex justify-evenly items-center background-gradient">
+
+
+                    <div className='w-96 h-80 bg-green-800'>
+                        Zamisli da je ovo mapa
+                    </div>
+                </div>
+
+                <footer className='bg-slate-300 w-full h-[35%] flex justify-evenly items-center background-gradient'>
                     <div className='flex gap-36'>
-                        <div className='flex flex-col text-white text-xl'>
+                        <div className=' text-white text-xl inline space-x-2'>
+                            <div>
+                                <h3>IGRAONA IGRAONA</h3>
+                                <p>Najbolja igraona u univerzumu i šire</p>
+                            </div>
                             <a href="">
-                                <FacebookIcon fontSize='large' /> Facebook
+                                <FacebookIcon fontSize='large' />
                             </a>
                             <a href="">
-                                <InstagramIcon fontSize='large' /> Instagram
+                                <InstagramIcon fontSize='large' />
                             </a>
                             <a href="">
-                                <TwitterIcon fontSize='large' /> Twitter
+                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-twitch" viewBox="0 0 16 16" className='mt-1 ml-0.5 inline' >
+                                    <path d="M3.857 0 1 2.857v10.286h3.429V16l2.857-2.857H9.57L14.714 8V0zm9.714 7.429-2.285 2.285H9l-2 2v-2H4.429V1.143h9.142z" />
+                                    <path d="M11.857 3.143h-1.143V6.57h1.143zm-3.143 0H7.571V6.57h1.143z" />
+                                </svg>
                             </a>
                         </div>
+
+
                         <div className='flex flex-col text-white text-xl'>
                             <p>Broj: 123456789</p>
                             <p>Email: a@gmail.com</p>
                             <p>Adresa: igraona st.</p>
                         </div>
                     </div>
-                    <div className='w-96 h-80 bg-green-800'>
-                        Zamisli da je ovo mapa
+                    <div>
+
                     </div>
-                </div>
+                </footer>
             </div>
         </div>
     )
