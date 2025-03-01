@@ -10,6 +10,7 @@
 
 html {
     scroll-behavior: smooth;
+    font-family: "Russo One", sans-serif;
 }
 
 .russo {
@@ -29,15 +30,20 @@ html {
 }
 
 .image2-gradient {
-    background: linear-gradient(to bottom, rgba(22, 22, 22, 0) 0%, #000000 100%), url('./assets/new.jpg');
+    background: url('./assets/new.jpg');
     background-size: 100%;
     background-position: center;
     background-repeat: no-repeat;
 }
 
-.background-gradient {
-    background: linear-gradient(to bottom, #161616 30%, #050505);
+.image3-gradient {
+    background: linear-gradient(to bottom, rgba(22, 22, 22, 0) 0%, #000000 100%), url('./assets/footerr.avif');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
+
+
 
 .button {
     position: relative;
@@ -51,7 +57,7 @@ html {
 
 .text {
     position: absolute;
-    top: 37%;
+    top: 39%;
     left: 50%;
     transform: translate(-50%, -50%);
     color: rgb(255, 255, 255);
