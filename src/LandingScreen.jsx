@@ -8,11 +8,18 @@ import GamesIcon from '@mui/icons-material/Games';
 import Plejka from '@mui/icons-material/SportsEsports';
 import Slika from './assets/10i.png'
 import Video from './assets/web.mp4'
+import { useNavigate } from 'react-router';
+import GoogleMap from './components/maps/GoogleMap';
 import './index.css'
 
 
 function LandingScreen() {
-    // #930415
+    const navigate = useNavigate()
+
+    const handleNavigate = () => {
+        navigate('/signUp')
+    }
+
     return (
         <div className="w-screen h-screen font-RS bg-red-200">
             <div className="igraona h-[120%] w-full bg-[#161616] relative" style={{
@@ -28,7 +35,7 @@ function LandingScreen() {
                     </div>
                     <div className="w-96 h-[1px] bg-white"></div>
 
-                    <button type="button" className="button">
+                    <button type="button" className="button" onClick={handleNavigate}>
                         <div className="img-back"></div>
                         <div className="text">PRIJAVI SE</div>
                     </button>
@@ -123,8 +130,8 @@ function LandingScreen() {
                 <div className="w-full h-[50%] flex justify-evenly items-center background-gradient">
 
 
-                    <div className='w-[90%] h-80 bg-green-800 mb-2'>
-                        Zamisli da je ovo mapa
+                    <div className='w-[96%] h-80 bg-green-800 mb-2'>
+                        <GoogleMap />
                     </div>
                 </div>
 
