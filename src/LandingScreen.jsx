@@ -3,6 +3,9 @@ import FacebookIcon from '@mui/icons-material/Facebook';
 import CallIcon from '@mui/icons-material/Call';
 import EmailIcon from '@mui/icons-material/Email';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
+import ComputerIcon from '@mui/icons-material/Computer';
+import GamesIcon from '@mui/icons-material/Games';
+import Plejka from '@mui/icons-material/SportsEsports';
 import Slika from './assets/10i.png'
 import Video from './assets/web.mp4'
 import './index.css'
@@ -59,10 +62,52 @@ function LandingScreen() {
 
             <div className="bg-black w-[120%] image2-gradient h-[75vh] border-gradient flex justify-center items-center relative bottom-28 z-10 transform rotate-[-3deg] origin-top -left-[10%]">
 
-                <p className="text-white w-96 text-lg rotate-[3deg]">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Iste provident officia velit vitae blanditiis amet...
-                </p>
+                <div className="transform rotate-[3deg]">
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        <div className="bg-[#131313] p-12 rounded-lg shadow-lg text-center w-full">
+                            <div className="flex justify-between items-center">
+                                <div>
+                                    <h5 className="text-gray-500 uppercase text-xl">plejke</h5>
+                                    <span className="text-5xl font-bold">5</span>
+                                </div>
+                                <div className="bg-[#D01F25] text-white p-6 rounded-full">
+                                    <Plejka fontSize='large'></Plejka>
+                                </div>
+                            </div>
+                            <p className="text-gray-500 text-xl mt-6">
+                                <span className="text-red-500"><i className="fas fa-arrow-down"></i> Lorem</span> ipsum dolor pol.
+                            </p>
+                        </div>
+                        <div className="bg-[#131313] p-12 rounded-lg shadow-lg text-center w-full">
+                            <div className="flex justify-between items-center">
+                                <div>
+                                    <h5 className="text-gray-500 uppercase text-xl">racunari</h5>
+                                    <span className="text-5xl font-bold">24</span>
+                                </div>
+                                <div className="bg-[#D01F25] text-white p-6 rounded-full">
+                                    <ComputerIcon fontSize='large'></ComputerIcon>
+                                </div>
+                            </div>
+                            <p className="text-gray-500 text-xl mt-6">
+                                <span className="text-red-500"><i className="fas fa-arrow-down"></i> Lorem</span> ipsum dolor pol.
+                            </p>
+                        </div>
+                        <div className="bg-[#131313] p-12 rounded-lg shadow-lg text-center w-full">
+                            <div className="flex justify-between items-center">
+                                <div>
+                                    <h5 className="text-gray-500 uppercase text-xl">igre</h5>
+                                    <span className="text-5xl font-bold">100+</span>
+                                </div>
+                                <div className="bg-[#D01F25] text-white p-6 rounded-full">
+                                    <GamesIcon fontSize='large'></GamesIcon>
+                                </div>
+                            </div>
+                            <p className="text-gray-500 text-xl mt-6">
+                                <span className="text-red-500"><i className="fas fa-arrow-down"></i> Lorem</span> ipsum dolor pol.
+                            </p>
+                        </div>
+                    </div>
+                </div>
             </div>
 
 
