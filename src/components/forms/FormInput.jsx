@@ -1,4 +1,4 @@
-import StarIcon from '@mui/icons-material/Star';
+import StarIcon from "@mui/icons-material/Star";
 
 const FormInput = ({
     className,
@@ -13,8 +13,10 @@ const FormInput = ({
     const handleChange = (e) => {
         const value = e.target.value;
 
-        if (name.startsWith("Player") && value && !value.startsWith("https://www.faceit.com/")) {
-            e.target.setCustomValidity("Link mora kreniti sa https://www.faceit.com/");
+        if (name.startsWith("player") && value && !value.includes("faceit.com")) {
+            e.target.setCustomValidity("Link mora biti sa https://www.faceit.com/");
+        } else if (name === "number" && value && value.length < 9) {
+            e.target.setCustomValidity("Kontakt telefon mora imati minimalno 9 brojeva");
         } else {
             e.target.setCustomValidity("");
         }
@@ -36,7 +38,7 @@ const FormInput = ({
             />
             <div className='flex flex-col items-center justify-center'>
                 <div className='absolute mr-8'>
-                    {children}
+                    {required && <StarIcon className='text-[#8D151F]' />}
                 </div>
             </div>
         </div>

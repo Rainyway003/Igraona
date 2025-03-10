@@ -3,8 +3,9 @@ import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.jsx'
 import { createBrowserRouter, RouterProvider, } from "react-router-dom";
-import SignUpScreen from './SignUpScreen.jsx'
-import { SignUpScreenAction } from './SignUpScreen.jsx'
+import SignUpScreen from './SignUpScreen.jsx';
+import AdminLogin from './admin/AdminLogin.js';
+import AdminScreen, { adminLoader } from './admin/AdminScreen.js';
 
 const router = createBrowserRouter([
   {
@@ -12,9 +13,17 @@ const router = createBrowserRouter([
     element: <App />,
   },
   {
-    path: "/signUp",
+    path: "/tt4",
     element: <SignUpScreen />,
-    action: SignUpScreenAction
+  },
+  {
+    path: "/admin/login",
+    element: <AdminLogin />,
+  },
+  {
+    path: "/admin",
+    element: <AdminScreen />,
+    loader: adminLoader,
   },
 ]);
 

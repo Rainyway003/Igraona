@@ -2,49 +2,54 @@ import InstagramIcon from '@mui/icons-material/Instagram';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import CallIcon from '@mui/icons-material/Call';
 import EmailIcon from '@mui/icons-material/Email';
-import LocationOnIcon from '@mui/icons-material/LocationOn';
 import ComputerIcon from '@mui/icons-material/Computer';
 import GamesIcon from '@mui/icons-material/Games';
-import Plejka from '@mui/icons-material/SportsEsports';
-import Slika from './assets/10i.png'
+import SportsEsportsIcon from '@mui/icons-material/SportsEsports';
+import FastfoodIcon from '@mui/icons-material/Fastfood';
+import Pozadina from './assets/10i.png'
 import Video from './assets/web.mp4'
 import { useNavigate } from 'react-router';
 import GoogleMap from './components/maps/GoogleMap';
 import './index.css'
-
+import LandingCountBox from "./components/landing/LandingCountBox.jsx";
+import FooterLink from "./components/landing/FooterLink.jsx";
 
 function LandingScreen() {
     const navigate = useNavigate()
 
     const handleNavigate = () => {
-        navigate('/signUp')
+        navigate('/tt4')
+    }
+
+    const clear = () => {
+        localStorage.clear()
     }
 
     return (
-        <div className="w-screen h-screen font-RS bg-red-200">
-            <div className="igraona h-[120%] w-full bg-[#161616] relative" style={{
-                backgroundImage: `url(${Slika})`,
-                backgroundSize: "cover",
+        <div className="w-screen h-svh bg-red-200">
+            <div className="igraona h-full md:h-[110vh] w-full bg-[#161616] relative bg-cover bg-no-repeat" style={{
+                backgroundImage: `url(${Pozadina})`,
                 backgroundPosition: "calc(50%) center",
-                backgroundRepeat: "no-repeat",
             }}>
-                <div className="w-full h-full flex flex-col justify-center items-center text-center gap-6">
-                    <div>
-                        <h1 className="text-[#8D151F] text-8xl font-[1000]">IGRAONA IGRAONA</h1>
-                        <h2 className="text-white text-8xl font-[1000]">TURNIR TURNIRA 4</h2>
-                    </div>
-                    <div className="w-96 h-[1px] bg-white"></div>
-
-                    <button type="button" className="button" onClick={handleNavigate}>
+                <div className="w-full h-full flex flex-col justify-center items-center text-centers russo">
+                    <h1 className="text-[#8D151F] text-center text-6xl md:text-8xl font-[1000] uppercase">Igraona Igraona</h1>
+                    <h2 className="text-white text-center text-6xl md:text-8xl font-[1000] uppercase">Turnir Turnira 4</h2>
+                    <button type="button" className="button mt-4" onClick={handleNavigate}>
                         <div className="img-back"></div>
-                        <div className="text">PRIJAVI SE</div>
+                        <div className="text uppercase">Prijavi se</div>
                     </button>
                 </div>
-
             </div>
 
 
-            <div className="w-[140%] h-[120%] relative flex justify-center bottom-16 items-center bg-[#161616] overflow-hidden transform rotate-[-3deg] origin-bottom-left">
+            <p className='block md:hidden text-white text-2xl p-4 mb-32'>
+                <span className="text-[#8D151F]">Igraona Igraona</span> u Gornjem Vakuf - Uskoplju omiljeno je mjesto za gejmere
+                svih generacija koji traže vrhunsku zabavu i odlično društvo. Uz širok izbor video igara, posjetitelji mogu testirati
+                svoje vještine, takmičiti se na turnirima ili jednostavno uživati u igri s prijateljima u opuštenoj atmosferi. Bilo da
+                dolazite sami ili s ekipom, očekuje vas puno smijeha, uzbuđenja i prilika za stvaranje nezaboravnih uspomena.
+            </p>
+
+            <div className="hidden md:flex w-[140%] h-[120%] relative justify-center items-center bg-[#161616] overflow-hidden transform rotate-[-3deg] origin-bottom-left">
                 <video
                     src={Video}
                     type="video/mp4"
@@ -54,128 +59,130 @@ function LandingScreen() {
                     playsInline
                     className="absolute w-full h-[140%] object-cover z-0 mask-video transform translate-x-[-15%] translate-y-[-10%]"
                 />
-                <div className='absolute w-[40%] h-[100%] flex left-80 text-center justify-center flex-col text-white transform rotate-[3deg]'>
-                    <h1 className='text-5xl'>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</h1>
-                    <p className='text-3xl'>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Esse nemo laborum magnam dolores neque mollitia quo sed,
-                        quibusdam numquam itaque dolorem adipisci,
-                        sit accusantium delectus,
-                        beatae praesentium saepe dolor doloribus?
-                    </p>
-                </div>
+                <p className='absolute w-[40%] left-24 bottom-48 text-white transform rotate-[3deg] text-3xl bg-black bg-opacity-50 p-4'>
+                    <span className="text-[#8D151F]">Igraona Igraona</span> u Gornjem Vakuf - Uskoplju omiljeno je mjesto za gejmere
+                    svih generacija koji traže vrhunsku zabavu i odlično društvo. Uz širok izbor video igara, posjetitelji mogu testirati
+                    svoje vještine, takmičiti se na turnirima ili jednostavno uživati u igri s prijateljima u opuštenoj atmosferi. Bilo da
+                    dolazite sami ili s ekipom, očekuje vas puno smijeha, uzbuđenja i prilika za stvaranje nezaboravnih uspomena.
+                </p>
             </div>
 
 
-            <div className="bg-black w-[120%] image2-gradient h-[75vh] border-gradient flex justify-center items-center relative bottom-28 z-10 transform rotate-[-3deg] origin-top -left-[10%]">
-
+            <div className={'block md:hidden'}>
+                <div className="grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-4 gap-8">
+                    <LandingCountBox
+                        Icon={ComputerIcon}
+                        title={'Kompovi'}
+                        number={'24'}
+                        description={'300+ FPSa'}
+                    />
+                    <LandingCountBox
+                        Icon={SportsEsportsIcon}
+                        title={'Plejke'}
+                        number={'5'}
+                        description={'PS5 + VR2'}
+                    />
+                    <LandingCountBox
+                        Icon={GamesIcon}
+                        title={'Igre'}
+                        number={'50+'}
+                        description={'Za svakog po nešto'}
+                    />
+                    <LandingCountBox
+                        Icon={FastfoodIcon}
+                        title={'Pića'}
+                        number={'20+'}
+                        description={'Sokova i hurmaja'}
+                    />
+                </div>
+            </div>
+            <div className="hidden md:flex bg-black w-[120%] image2-gradient h-[75vh] border-gradient justify-center items-center relative bottom-28 z-10 transform rotate-[-3deg] origin-top -left-[10%]">
                 <div className="transform rotate-[3deg]">
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                        <div className="bg-[#131313] p-12 rounded-lg shadow-lg text-center w-full">
-                            <div className="flex justify-between items-center">
-                                <div>
-                                    <h5 className="text-gray-500 uppercase text-xl">plejke</h5>
-                                    <span className="text-5xl font-bold">5</span>
-                                </div>
-                                <div className="bg-[#D01F25] text-white p-6 rounded-full">
-                                    <Plejka fontSize='large'></Plejka>
-                                </div>
-                            </div>
-                            <p className="text-gray-500 text-xl mt-6">
-                                <span className="text-red-500"><i className="fas fa-arrow-down"></i> Lorem</span> ipsum dolor pol.
-                            </p>
-                        </div>
-                        <div className="bg-[#131313] p-12 rounded-lg shadow-lg text-center w-full">
-                            <div className="flex justify-between items-center">
-                                <div>
-                                    <h5 className="text-gray-500 uppercase text-xl">racunari</h5>
-                                    <span className="text-5xl font-bold">24</span>
-                                </div>
-                                <div className="bg-[#D01F25] text-white p-6 rounded-full">
-                                    <ComputerIcon fontSize='large'></ComputerIcon>
-                                </div>
-                            </div>
-                            <p className="text-gray-500 text-xl mt-6">
-                                <span className="text-red-500"><i className="fas fa-arrow-down"></i> Lorem</span> ipsum dolor pol.
-                            </p>
-                        </div>
-                        <div className="bg-[#131313] p-12 rounded-lg shadow-lg text-center w-full">
-                            <div className="flex justify-between items-center">
-                                <div>
-                                    <h5 className="text-gray-500 uppercase text-xl">igre</h5>
-                                    <span className="text-5xl font-bold">100+</span>
-                                </div>
-                                <div className="bg-[#D01F25] text-white p-6 rounded-full">
-                                    <GamesIcon fontSize='large'></GamesIcon>
-                                </div>
-                            </div>
-                            <p className="text-gray-500 text-xl mt-6">
-                                <span className="text-red-500"><i className="fas fa-arrow-down"></i> Lorem</span> ipsum dolor pol.
-                            </p>
-                        </div>
+                    <div className="grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-4 gap-8">
+                        <LandingCountBox
+                            Icon={ComputerIcon}
+                            title={'Kompovi'}
+                            number={'24'}
+                            description={'300+ FPSa'}
+                        />
+                        <LandingCountBox
+                            Icon={SportsEsportsIcon}
+                            title={'Plejke'}
+                            number={'5'}
+                            description={'PS5 + VR2'}
+                        />
+                        <LandingCountBox
+                            Icon={GamesIcon}
+                            title={'Igre'}
+                            number={'50+'}
+                            description={'Za svakog po nešto'}
+                        />
+                        <LandingCountBox
+                            Icon={FastfoodIcon}
+                            title={'Pića'}
+                            number={'20+'}
+                            description={'Sokova i hurmaja'}
+                        />
                     </div>
                 </div>
             </div>
 
+            <div className="hidden md:block w-full h-full image-gradient relative md:bottom-40" />
 
-
-
-            <div className="w-full h-[100%] image-gradient relative bottom-32">
-
-                <div className="w-full h-[100%] relative flex pt-52 items-center justify-evenly">
+            <div className="hidden md:flex w-full h-fit items-center justify-center background-gradient mb-40">
+                <div className='w-full md:w-[80%]'>
+                    <GoogleMap />
                 </div>
+            </div>
 
-
-
-                <div className="w-full h-[50%] flex justify-evenly items-center background-gradient">
-
-
-                    <div className='w-[96%] h-80 bg-green-800 mb-2'>
-                        <GoogleMap />
-                    </div>
+            <div className="image3-gradient w-full md:h-[320px] grid grid-cols-1 md:grid-cols-3 items-start p-8 md:px-32 md:py-16 gap-8 md:gap-32">
+                {/*<div className={'flex justify-center items-center'}>*/}
+                {/*<div className={'bg-black bg-opacity-90 w-fit h-fit p-8 rounded-3xl'}>*/}
+                {/*  <img src={Logo} alt={'Logo'} width={300} height={300}/>*/}
+                {/*</div>*/}
+                {/*</div>*/}
+                <div className={'flex flex-col gap-2 justify-center items-start'}>
+                    <h3 className='text-3xl'>Igraona Igraona</h3>
+                    <p className='text-2xl'>Vrbaska bb,<br />Gornji Vakuf - Uskoplje,<br />70240</p>
                 </div>
-
-                <div className="image3-gradient w-full h-[400px] bg-gradient-to-b from-transparent to-black bg-cover bg-center flex justify-evenly items-center">
-                    <div className='flex gap-36 relative '>
-                        <div className=' text-white text-xl inline '>
-                            <div className='w-72'>
-                                <h3 className='font-bold mb-2'>Igraona Igraona</h3>
-                                <p className='text-lg'>Najbolja igraona u univerzumu i šire Lorem ipsum dolor sit, amet consecpti autem neque optio nisi.</p>
-                            </div>
-                            <div className='flex space-x-2 mt-3'> {/* Promjena: dodana flex klasa */}
-                                <a href="">
-                                    <FacebookIcon fontSize='large' />
-                                </a>
-                                <a href="">
-                                    <InstagramIcon fontSize='large' />
-                                </a>
-                                <a href="">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-twitch" viewBox="0 0 16 16" className='mt-1 ml-0.5'>
-                                        <path d="M3.857 0 1 2.857v10.286h3.429V16l2.857-2.857H9.57L14.714 8V0zm9.714 7.429-2.285 2.285H9l-2 2v-2H4.429V1.143h9.142z" />
-                                        <path d="M11.857 3.143h-1.143V6.57h1.143zm-3.143 0H7.571V6.57h1.143z" />
-                                    </svg>
-                                </a>
-                            </div>
-                        </div>
-
-
-                        <div className='flex flex-col text-white text-xl'>
-                            <h3 className='mb-2 font-bold'>KONTAKT</h3>
-                            <div className='inline'>
-                                <CallIcon fontSize='large' />  123456789
-                            </div>
-                            <div className='inline'>
-                                <EmailIcon fontSize='large' />  a@gmail.com
-                            </div>
-                            <div className='inline'>
-                                <LocationOnIcon fontSize='large' />  Igraona
-                            </div>
-                        </div>
-
-                    </div>
+                <div className={'flex flex-col gap-2 text-xl justify-center items-start'}>
+                    <h3 className='text-2xl'>Kontakti</h3>
+                    <FooterLink
+                        Icon={<CallIcon className={'!w-8 !h-8'} />}
+                        text={'+387 61 831 802'}
+                        url={'tel:+38761831802'}
+                    />
+                    <FooterLink
+                        Icon={<EmailIcon className={'!w-8 !h-8'} />}
+                        text={'igraona@p23.io'}
+                        url={'mailto:igraona@p23.io'}
+                    />
                 </div>
-            </div >
-        </div >
+                <div className={'flex flex-col gap-2 text-xl justify-center items-start'}>
+                    <h3 className='text-2xl'>Linkovi</h3>
+                    <FooterLink
+                        Icon={<FacebookIcon className={'!w-8 !h-8'} />}
+                        text={'Fejs'}
+                        url={'https://www.facebook.com/igraona.gvu'}
+                    />
+                    <FooterLink
+                        Icon={<InstagramIcon className={'!w-8 !h-8'} />}
+                        text={'Instać'}
+                        url={'https://www.instagram.com/igraona.gvu'}
+                    />
+                    <FooterLink
+                        Icon={
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 16 16" className='bi bi-twitch'>
+                                <path d="M3.857 0 1 2.857v10.286h3.429V16l2.857-2.857H9.57L14.714 8V0zm9.714 7.429-2.285 2.285H9l-2 2v-2H4.429V1.143h9.142z" />
+                                <path d="M11.857 3.143h-1.143V6.57h1.143zm-3.143 0H7.571V6.57h1.143z" />
+                            </svg>
+                        }
+                        text={'Tvić'}
+                        url={'https://www.twitch.tv/igraona'}
+                    />
+                </div>
+            </div>
+        </div>
     )
 }
 

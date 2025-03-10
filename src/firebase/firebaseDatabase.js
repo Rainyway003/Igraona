@@ -1,19 +1,34 @@
-import { addDoc, collection, getFirestore } from "firebase/firestore";
-import app from './firebase.js';
+import { addDoc, collection, getDocs, query, where } from "firebase/firestore";
+import { db } from "./firebase.js";
 
-const db = getFirestore(app);
-
-export const signUpTeam = async (TeamName, number, Player1, Player2, Player3, Player4, Player5, Player6) => {
-    const docRef = await addDoc(collection(db, "teams"), {
-        TeamName: TeamName,
-        Number: number,
-        Player1: Player1,
-        Player2: Player2,
-        Player3: Player3,
-        Player4: Player4,
-        Player5: Player5,
-        Player6: Player6,
+export const signUpTeam = async (name, number, player1, player2, player3, player4, player5, player6) => {
+    const teamsRef = collection(db, "teams");
+    const players = [player1, player2, player3, player4, player5];
+    if (player6.length > 0) {
+        players.push(player6);
+    }
+    if (hasDuplicates(players)) {
+        throw new Error(`Igrači se ponavljaju.`);
+    }
+    for (const player of players) {
+        const existing = await getDocs(query(teamsRef, where("players", "array-contains", player)));
+        if (!existing.empty) {
+            throw new Error(`Igrač ${player} je već registriran.`);
+        }
+    }
+    await addDoc(teamsRef, {
+        name,
+        number,
+        player1,
+        player2,
+        player3,
+        player4,
+        player5,
+        player6,
+        players,
     });
+}
 
-    return docRef
+const hasDuplicates = (array) => {
+    return (new Set(array)).size !== array.length;
 }

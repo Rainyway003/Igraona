@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Russo+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&family=Russo+One&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -15,7 +15,11 @@ html {
 
 .russo {
     font-family: "Russo One", sans-serif;
-    font-weight: 400;
+    font-style: normal;
+}
+
+.roboto {
+    font-family: "Roboto", sans-serif;
     font-style: normal;
 }
 
@@ -37,19 +41,17 @@ html {
 }
 
 .image3-gradient {
-    background: linear-gradient(to bottom, rgba(22, 22, 22, 0) 0%, #000000 100%), url('./assets/footerr.avif');
+    background: linear-gradient(to bottom, rgba(22, 22, 22, 0) 0%, #000000 100%), url('assets/footer.avif');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
 }
 
 
-
 .button {
     position: relative;
     width: 400px;
     height: 100px;
-    margin: 20px auto;
     overflow: hidden;
     border-radius: 20px;
     background: transparent;
