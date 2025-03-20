@@ -1,4 +1,4 @@
-import { useFetcher } from 'react-router';
+import { useFetcher, useLocation } from 'react-router';
 import Pozadina from './assets/10i.png';
 import { signUpTeam } from './firebase/firebaseDatabase';
 import FormInput from './components/forms/FormInput';
@@ -9,6 +9,11 @@ import { CircularProgress, IconButton } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
 
 function SignUpScreen() {
+    const location = useLocation()
+    const { tournament } = location.state || {}
+
+    console.log(tournament)
+
     const fetcher = useFetcher();
 
     const [rules, setRules] = useState(false);
@@ -30,7 +35,7 @@ function SignUpScreen() {
             const player4 = formData.get('player4')
             const player5 = formData.get('player5')
             const player6 = formData.get('player6')
-            await signUpTeam(name, number, player1, player2, player3, player4, player5, player6)
+            await signUpTeam(tournament.id, name, number, player1, player2, player3, player4, player5, player6)
             setComplete(name)
         } catch (error) {
             console.error(error)
@@ -48,7 +53,7 @@ function SignUpScreen() {
                     backgroundPosition: "calc(50%) center",
                 }}>
                     <div className={'flex flex-col items-center justify-center'}>
-                        <h1 className='text-4xl md:text-6xl font-[1000] text-[#8D151F] uppercase mb-2'>Turnir Turnira 4</h1>
+                        <h1 className='text-4xl md:text-6xl font-[1000] text-[#8D151F] uppercase mb-2'>{tournament.tournamentName}</h1>
                         <button className='text-2xl md:text-4xl mb-8 underline' onClick={() => setRules(true)}>Pravila</button>
                         {error && <p className={'w-screen px-4 text-2xl text-amber-300 mb-4 break-words text-center'}>{error}</p>}
                         <fetcher.Form method="post" className='flex flex-col items-center w-[50%] gap-3' onSubmit={submitForm}>
